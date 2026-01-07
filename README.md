@@ -1,140 +1,129 @@
-📌 Project Overview
+# 🚀 FullStack Intern Coding Challenge
 
-This project is a full-stack web application that allows users to submit ratings for stores registered on the platform. The application supports role-based access control with three user roles: System Administrator, Normal User, and Store Owner.
+## 📘 Project Overview
+This is a full-stack web application that allows users to submit **ratings (1–5)** for stores registered on the platform.  
+The system uses a **single authentication mechanism** with **role-based access control** for different user types.
 
-Each user logs in through a single authentication system and is granted permissions based on their role.
+---
 
-🛠 Tech Stack
-Backend
+## 🛠 Tech Stack
 
-Framework: Express.js / NestJS / Loopback (any one)
+### Backend
+- **Framework:** Express.js / NestJS / Loopback  
+- **Database:** PostgreSQL / MySQL  
+- **Authentication:** JWT (JSON Web Token)
 
-Database: PostgreSQL or MySQL
+### Frontend
+- **Framework:** React.js
 
-Authentication: JWT (JSON Web Token)
+---
 
-ORM (Recommended): Prisma / Sequelize / TypeORM
+## 👥 User Roles
+- **System Administrator**
+- **Normal User**
+- **Store Owner**
 
-Frontend
+---
 
-Framework: React.js
+## ⚙️ Functional Requirements
 
-State Management: Context API / Redux (optional)
+### 🔐 Authentication
+- Single login system for all users
+- Role-based access after login
 
-UI Library: Material UI / Ant Design / Bootstrap (optional)
+---
 
-👥 User Roles & Functionalities
-1️⃣ System Administrator
+### 🛡 System Administrator
+- ➕ Add new stores, normal users, and admin users  
+- 📊 Dashboard displaying:
+  - Total number of users
+  - Total number of stores
+  - Total number of submitted ratings
+- 🏬 View stores list:
+  - Name, Email, Address, Rating
+- 👤 View users list:
+  - Name, Email, Address, Role
+- 🔍 Apply filters on:
+  - Name, Email, Address, Role
+- 📄 View user details
+  - Store owners include store rating
+- 🚪 Logout
 
-Add new stores, normal users, and admin users
+---
 
-Access dashboard showing:
+### 👥 Normal User
+- 📝 Sign up and log in
+- 🔑 Update password after login
+- 🏪 View all registered stores
+- 🔎 Search stores by name and address
+- 📋 Store listing shows:
+  - Store Name
+  - Address
+  - Overall Rating
+  - User’s Submitted Rating
+- ⭐ Submit and update ratings (1–5)
+- 🚪 Logout
 
-Total users
+---
 
-Total stores
+### 🏪 Store Owner
+- 🔐 Log in
+- 🔑 Update password
+- 📊 Dashboard:
+  - View users who rated the store
+  - View average store rating
+- 🚪 Logout
 
-Total submitted ratings
+---
 
-View store listings with:
+## 📝 Form Validations
 
-Name, Email, Address, Rating
+| Field     | Validation Rules |
+|----------|------------------|
+| Name     | 20–60 characters |
+| Address  | Max 400 characters |
+| Password | 8–16 characters, at least 1 uppercase & 1 special character |
+| Email    | Standard email format |
 
-View user listings with:
+---
 
-Name, Email, Address, Role
+## 🗃 Database Schema (Suggested)
 
-Apply filters on listings (Name, Email, Address, Role)
+### 📌 Users
+- `id`
+- `name`
+- `email`
+- `password`
+- `address`
+- `role`
 
-View detailed user profiles
+### 📌 Stores
+- `id`
+- `name`
+- `email`
+- `address`
+- `owner_id`
 
-Store owners include store rating
+### 📌 Ratings
+- `id`
+- `user_id`
+- `store_id`
+- `rating`
 
-Logout functionality
+---
 
-2️⃣ Normal User
+## 📊 Additional Features
+- 🔃 Sorting (ASC/DESC) for all tables
+- 🔍 Search and filtering
+- 🔐 Secure password hashing
+- 🌐 RESTful API architecture
+- 🧩 Modular frontend components
 
-Register and log in
+---
 
-Update password after login
+## 🚀 Installation & Setup
 
-View all registered stores
-
-Search stores by name and address
-
-View store details:
-
-Store name
-
-Address
-
-Overall rating
-
-User’s submitted rating
-
-Submit and update ratings (1–5)
-
-Logout functionality
-
-3️⃣ Store Owner
-
-Log in
-
-Update password
-
-Dashboard access:
-
-View users who rated their store
-
-View average store rating
-
-Logout functionality
-
-📋 Form Validations
-Field	Validation Rules
-Name	20–60 characters
-Address	Maximum 400 characters
-Password	8–16 characters, at least 1 uppercase letter and 1 special character
-Email	Must follow standard email format
-🗄 Database Design (Recommended Tables)
-
-Users
-
-id, name, email, password, address, role
-
-Stores
-
-id, name, email, address, owner_id
-
-Ratings
-
-id, user_id, store_id, rating
-
-🔐 Authentication & Authorization
-
-Single login system for all users
-
-JWT-based authentication
-
-Role-based route protection for Admin, User, and Store Owner
-
-📊 Features
-
-Sorting support (ascending/descending) for all tables
-
-Search and filter functionality
-
-Secure password hashing
-
-RESTful API architecture
-
-Clean and modular frontend components
-
-🚀 Installation & Setup
-Backend Setup
+### Backend
+```bash
 npm install
 npm run dev
-
-Frontend Setup
-npm install
-npm start
